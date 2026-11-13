@@ -1,0 +1,2 @@
+# darimataturunkehati
+Membina sebatian ion
