@@ -1,2 +1,127 @@
-# darimataturunkehati
-Membina sebatian ion
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10233f">
+<title>Ionic Compound Builder | Chemistry Game</title>
+<style>
+:root{--navy:#10233f;--ink:#17243a;--muted:#65748b;--bg:#f3f6fb;--card:#fff;--blue:#2563eb;--pink:#db2777;--green:#16834a;--red:#c24141;--line:#e4eaf2;--shadow:0 18px 50px rgba(25,45,75,.10)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0%,#e6efff 0,transparent 35%),var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);min-height:100vh}
+header{background:var(--navy);color:#fff;padding:25px 20px 62px}.header-inner,.container{max-width:960px;margin:auto}.eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:#a9c7ff;font-weight:800}.brand{display:flex;align-items:center;gap:12px}.brand-icon{width:46px;height:46px;border-radius:14px;background:#23466f;display:grid;place-items:center;font-size:25px}.brand h1{font-size:clamp(1.45rem,4vw,2.2rem);margin:5px 0 4px;letter-spacing:-.04em}.brand p{margin:0;color:#c3d2e7;font-size:.92rem}
+.container{padding:0 18px 40px;margin-top:-38px}.dashboard{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px}.stat{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:15px 17px;box-shadow:var(--shadow)}.stat span{display:block;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800}.stat strong{display:block;font-size:1.65rem;margin-top:3px}
+.game{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(18px,4vw,30px);box-shadow:var(--shadow)}.topline{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.tag{font-size:.74rem;font-weight:800;padding:7px 11px;border-radius:999px;background:#eaf2ff;color:#1d4ed8}.level{font-weight:800;color:var(--muted);font-size:.9rem}.progress{display:flex;gap:6px;margin:15px 0 24px}.progress i{height:7px;flex:1;background:#e8edf4;border-radius:20px}.progress i.done{background:#20a05a}
+h2{font-size:1.35rem;margin:0 0 7px;letter-spacing:-.025em}.intro{color:var(--muted);margin:0 0 20px;line-height:1.5}.ions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 24px}.ion{border-radius:17px;padding:20px;text-align:center}.cation{background:#eaf2ff;color:#1d4ed8}.anion{background:#fceaf3;color:#be185d}.ion small{display:block;font-size:.72rem;letter-spacing:.12em;font-weight:900}.ion strong{display:block;font-size:2.1rem;margin:7px 0 2px}.ion em{font-size:.78rem;font-style:normal;opacity:.8}
+.step{margin:20px 0}.step-title{font-weight:800;margin-bottom:10px}.step-title small{display:block;font-weight:500;color:var(--muted);margin-top:3px}.choices{display:flex;gap:9px}.choice{border:1.5px solid var(--line);background:#fff;border-radius:12px;min-width:58px;padding:12px 18px;font-size:1rem;font-weight:800;color:var(--ink);cursor:pointer;transition:.15s}.choice:hover{border-color:#8ba9e8}.choice.selected{background:var(--navy);color:white;border-color:var(--navy)}button:focus-visible{outline:3px solid #93c5fd;outline-offset:3px}button:disabled{opacity:.55;cursor:not-allowed}
+.balance{background:#f6f8fc;border:1px solid var(--line);border-radius:16px;padding:16px;margin:18px 0}.balance-row{display:flex;justify-content:space-between;gap:12px;padding:5px 0;color:var(--muted);font-size:.92rem}.balance-row b{color:var(--ink);font-variant-numeric:tabular-nums}.net{border-top:1px solid var(--line);margin-top:8px;padding-top:12px;font-weight:850;color:var(--ink)}.net b{font-size:1.3rem}.net .zero{color:var(--green)}.net .nonzero{color:var(--red)}
+.actions{display:flex;gap:10px;flex-wrap:wrap}.primary,.secondary{border:0;border-radius:12px;padding:13px 18px;font-weight:850;font-size:.95rem;cursor:pointer}.primary{background:var(--blue);color:white;flex:1}.primary:hover{background:#1d4ed8}.secondary{background:#edf1f7;color:#34445c}.feedback{display:none;margin-top:16px;padding:15px;border-radius:14px;line-height:1.5}.feedback.show{display:block}.feedback.good{background:#eaf8ef;color:#17633b}.feedback.try{background:#fff5e6;color:#8b4b0b}.answer-formula{font-size:2rem;font-weight:900;letter-spacing:.02em;margin:8px 0}.hint{font-size:.9rem;margin-top:6px}
+.footer{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:.82rem;margin-top:18px}.teacher-note{margin-top:18px;color:var(--muted);font-size:.86rem;line-height:1.5}.complete{text-align:center;padding:16px 4px}.complete .trophy{font-size:3rem}.complete h2{font-size:1.8rem}.hidden{display:none!important}
+@media(max-width:600px){.dashboard{gap:8px}.stat{padding:12px}.stat strong{font-size:1.35rem}.ions{gap:8px}.ion{padding:16px 8px}.ion strong{font-size:1.8rem}.choice{flex:1;padding:12px 8px;min-width:0}.container{padding-left:12px;padding-right:12px}.game{border-radius:18px}}
+</style>
+</head>
+<body>
+<header><div class="header-inner">
+  <div class="brand"><div class="brand-icon">⚗️</div><div><div class="eyebrow">Chemistry • Interactive challenge</div><h1>Ionic Compound Builder</h1><p>Combine ions. Balance charges. Build neutral compounds.</p></div></div>
+</div></header>
+<main class="container">
+  <section class="dashboard" aria-label="Game statistics">
+    <div class="stat"><span>Your score</span><strong id="score">0 <small style="font-size:.8rem;color:#65748b">pts</small></strong></div>
+    <div class="stat"><span>Challenge</span><strong id="challenge">1 / 8</strong></div>
+    <div class="stat"><span>Attempts</span><strong id="attempts">0</strong></div>
+  </section>
+  <section class="game" id="gamePanel">
+    <div class="topline"><span class="tag">⚡ IONIC BONDING MISSION</span><span class="level" id="levelLabel">LEVEL 1</span></div>
+    <div class="progress" id="progress" aria-label="Game progress"></div>
+    <h2>Build the ionic compound!</h2>
+    <p class="intro">Choose how many of each ion are needed so that the total positive charge equals the total negative charge.</p>
+    <div class="ions">
+      <div class="ion cation"><small>CATION • POSITIVE</small><strong id="cation">Na⁺</strong><em>Positive ion</em></div>
+      <div class="ion anion"><small>ANION • NEGATIVE</small><strong id="anion">Cl⁻</strong><em>Negative ion</em></div>
+    </div>
+    <div class="step"><div class="step-title">1. Select the number of cations <small id="cationPrompt">How many Na⁺ ions are needed?</small></div><div class="choices" id="cationChoices"></div></div>
+    <div class="step"><div class="step-title">2. Select the number of anions <small id="anionPrompt">How many Cl⁻ ions are needed?</small></div><div class="choices" id="anionChoices"></div></div>
+    <div class="balance">
+      <div class="balance-row"><span>Total positive charge</span><b id="positive">+1</b></div>
+      <div class="balance-row"><span>Total negative charge</span><b id="negative">−1</b></div>
+      <div class="balance-row net"><span>Net charge</span><b class="zero" id="net">0</b></div>
+    </div>
+    <div class="actions"><button class="primary" id="checkBtn">✓ Check answer</button><button class="secondary" id="hintBtn">💡 Hint</button></div>
+    <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+    <div class="footer"><span>Correct answer = 10 points</span><button class="secondary" id="restartBtn">↻ Restart game</button></div>
+    <p class="teacher-note"><b>Learning goal:</b> Determine the simplest whole-number ratio of cations and anions needed to form an electrically neutral ionic compound.</p>
+  </section>
+  <section class="game complete hidden" id="completePanel">
+    <div class="trophy">🏆</div><h2>Mission completed!</h2><p class="intro">You have completed all eight ionic compound challenges.</p>
+    <div class="answer-formula" id="finalScore">0 / 80</div><p id="finalMessage"></p>
+    <button class="primary" id="playAgainBtn">Play again</button>
+  </section>
+</main>
+<script>
+const levels = [
+ {c:'Na⁺',a:'Cl⁻',pc:1,na:1,cn:1,an:1,formula:'NaCl',name:'Sodium chloride',hint:'One Na⁺ ion (+1) balances one Cl⁻ ion (−1).'},
+ {c:'Mg²⁺',a:'Cl⁻',pc:2,na:1,cn:1,an:2,formula:'MgCl₂',name:'Magnesium chloride',hint:'One Mg²⁺ ion has a +2 charge, so it needs two Cl⁻ ions.'},
+ {c:'Al³⁺',a:'O²⁻',pc:3,na:2,cn:2,an:3,formula:'Al₂O₃',name:'Aluminium oxide',hint:'Two Al³⁺ ions give +6. Three O²⁻ ions give −6.'},
+ {c:'Ca²⁺',a:'N³⁻',pc:2,na:3,cn:3,an:2,formula:'Ca₃N₂',name:'Calcium nitride',hint:'Three Ca²⁺ ions give +6. Two N³⁻ ions give −6.'},
+ {c:'K⁺',a:'SO₄²⁻',pc:1,na:2,cn:2,an:1,formula:'K₂SO₄',name:'Potassium sulfate',hint:'Two K⁺ ions (+2) balance one SO₄²⁻ ion (−2).'},
+ {c:'Mg²⁺',a:'OH⁻',pc:2,na:1,cn:1,an:2,formula:'Mg(OH)₂',name:'Magnesium hydroxide',hint:'One Mg²⁺ ion balances two OH⁻ ions. Use brackets for repeated polyatomic ions.'},
+ {c:'NH₄⁺',a:'SO₄²⁻',pc:1,na:2,cn:2,an:1,formula:'(NH₄)₂SO₄',name:'Ammonium sulfate',hint:'Two NH₄⁺ ions (+2) balance one SO₄²⁻ ion (−2).'},
+ {c:'Al³⁺',a:'SO₄²⁻',pc:3,na:2,cn:2,an:3,formula:'Al₂(SO₄)₃',name:'Aluminium sulfate',hint:'Two Al³⁺ ions give +6. Three SO₄²⁻ ions give −6.'}
+];
+let index=0,cCount=1,aCount=1,score=0,attempts=0,solved=false;
+const $=id=>document.getElementById(id);
+function render(){
+ const q=levels[index];solved=false;cCount=1;aCount=1;
+ $('score').innerHTML=score+' <small style="font-size:.8rem;color:#65748b">pts</small>';
+ $('challenge').textContent=(index+1)+' / '+levels.length;$('attempts').textContent=attempts;
+ $('levelLabel').textContent='LEVEL '+(index+1);
+ $('cation').textContent=q.c;$('anion').textContent=q.a;
+ $('cationPrompt').textContent='How many '+q.c+' ions are needed?';
+ $('anionPrompt').textContent='How many '+q.a+' ions are needed?';
+ $('progress').innerHTML=levels.map((_,i)=>`<i class="${i<=index?'done':''}"></i>`).join('');
+ makeChoices('cationChoices','c',1);makeChoices('anionChoices','a',1);updateBalance();
+ $('feedback').className='feedback';$('feedback').textContent='';
+ $('checkBtn').disabled=false;$('hintBtn').disabled=false;
+ $('gamePanel').classList.remove('hidden');$('completePanel').classList.add('hidden');
+}
+function makeChoices(id,type,selected){
+ $(id).innerHTML=[1,2,3].map(n=>`<button class="choice ${n===selected?'selected':''}" data-count="${n}" aria-pressed="${n===selected}">${n}</button>`).join('');
+ $(id).querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{
+   if(solved)return;
+   if(type==='c')cCount=Number(btn.dataset.count);else aCount=Number(btn.dataset.count);
+   makeChoices(id,type,Number(btn.dataset.count));updateBalance();
+ }));
+}
+function updateBalance(){
+ const q=levels[index],p=cCount*q.pc,n=aCount*q.na,d=p-n;
+ $('positive').textContent='+'+p;$('negative').textContent='−'+n;
+ $('net').textContent=d===0?'0':(d>0?'+':'−')+Math.abs(d);
+ $('net').className=d===0?'zero':'nonzero';
+}
+$('checkBtn').addEventListener('click',()=>{
+ if(solved)return;attempts++;$('attempts').textContent=attempts;
+ const q=levels[index],correct=cCount===q.cn&&aCount===q.an;
+ const f=$('feedback');f.className='feedback show '+(correct?'good':'try');
+ if(correct){
+  solved=true;score+=10;$('score').innerHTML=score+' <small style="font-size:.8rem;color:#65748b">pts</small>';
+  f.innerHTML=`<b>✓ Correct! +10 points</b><div class="answer-formula">${q.formula}</div><b>${q.name}</b><div class="hint">The total positive and negative charges are equal, so the compound is electrically neutral.</div><button class="primary" id="nextBtn" style="margin-top:13px;width:100%">${index===levels.length-1?'See results':'Next challenge →'}</button>`;
+  $('checkBtn').disabled=true;$('hintBtn').disabled=true;
+  $('nextBtn').addEventListener('click',()=>{if(index<levels.length-1){index++;render()}else finish()});
+ }else{
+  f.innerHTML='<b>Not quite — try again!</b><div class="hint">The total positive charge must equal the total negative charge. Recheck the ion charges and try a different ratio.</div>';
+ }
+});
+$('hintBtn').addEventListener('click',()=>{
+ const q=levels[index],f=$('feedback');f.className='feedback show try';
+ f.innerHTML='<b>💡 Hint</b><div class="hint">'+q.hint+'</div>';
+});
+function finish(){
+ $('gamePanel').classList.add('hidden');$('completePanel').classList.remove('hidden');
+ $('finalScore').textContent=score+' / 80';
+ $('finalMessage').textContent=score===80?'Perfect score! You are an Ionic Compound Master!':'Well done! Review the charge-balancing hints and play again to improve your score.';
+}
+function restart(){index=0;score=0;attempts=0;render()}
+$('restartBtn').addEventListener('click',restart);$('playAgainBtn').addEventListener('click',restart);
+render();
+</script>
+</body>
+</html>
